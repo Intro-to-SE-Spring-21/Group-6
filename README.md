@@ -1,9 +1,14 @@
 # Group-6
 
+Team Members
+---------------
+```
 Team Lead: Caden Austin
---------------------------
+
 Github Email: Cadenbryant@hotmail.com
-MSU ID: CBA169
+
+MSU ID: CBA169 
+```
 
 1/23 Team Meeting Summary
 - Django framework
