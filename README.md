@@ -1,6 +1,6 @@
 # Group-6
 
-Team Members
+Team Members: Darrion Robinson
 ---------------
 ```
 Team Lead: Caden Austin
