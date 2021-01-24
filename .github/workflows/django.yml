@@ -18,13 +18,12 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Move into correct Directory
-      run: |
-        cd TwitterClone
     - name: Install Dependencies
+      working-directory: ./TwitterClone
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Run Tests
+      working-directory: ./TwitterClone
       run: |
         python manage.py test
