@@ -20,11 +20,11 @@ Github Email: dr1374@msstate.edu
 MSU ID: dr1374
 ```
 ```
-Front-End: Student-2-name
+Front-End: Bryan Alston
 
-Github Email: Student-2-email
+Github Email: bma1701@gmail.com
 
-MSU ID: Student-2-id 
+MSU ID: bma271
 ```
 ```
 Front-End: Student-3-name
