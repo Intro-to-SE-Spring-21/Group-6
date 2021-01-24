@@ -13,11 +13,11 @@ Github Email: Cadenbryant@hotmail.com
 MSU ID: CBA169 
 ```
 ```
-Front-End: Student-1-name
+Front-End: Darrion Robinson
 
-Github Email: Student-1-email
+Github Email: dr1374@msstate.edu
 
-MSU ID: Student-1-id 
+MSU ID: dr1374
 ```
 ```
 Front-End: Student-2-name
