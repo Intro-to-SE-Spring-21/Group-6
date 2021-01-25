@@ -20,11 +20,11 @@ Github Email: dr1374@msstate.edu
 MSU ID: dr1374
 ```
 ```
-Front-End: Student-2-name
+???: Connor Hicks
 
-Github Email: Student-2-email
+Github Email: connorhicks@outlook.com
 
-MSU ID: Student-2-id 
+MSU ID: ch3083 
 ```
 ```
 Front-End: Student-3-name
