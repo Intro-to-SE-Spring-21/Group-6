@@ -20,16 +20,16 @@ Github Email: dr1374@msstate.edu
 MSU ID: dr1374
 ```
 ```
-Front-End: Bryan Alston
+???: Connor Hicks
+
+Github Email: connorhicks@outlook.com
+
+MSU ID: ch3083 
+```
+```
+???: Bryan Alston
 
 Github Email: bma1701@gmail.com
 
 MSU ID: bma271
-```
-```
-Front-End: Student-3-name
-
-Github Email: Student-3-email
-
-MSU ID: Student-3-id 
 ```
