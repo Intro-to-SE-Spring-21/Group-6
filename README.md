@@ -27,9 +27,9 @@ Github Email: connorhicks@outlook.com
 MSU ID: ch3083 
 ```
 ```
-Front-End: Student-3-name
+???: Bryan Alston
 
-Github Email: Student-3-email
+Github Email: bma1701@gmail.com
 
-MSU ID: Student-3-id 
+MSU ID: bma271
 ```
