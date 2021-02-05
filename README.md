@@ -1,7 +1,23 @@
 # Group-6
 Description
 -----------------
-A Twitter-like application created in Django and SQLite written for Intro to Software Engineering at Mississippi State University, Spring 2021
+A Twitter-like application created in Python, Django, and SQLite. Written for Intro to Software Engineering at Mississippi State University, Spring 2021.
+
+Objective
+-----------------
+To create a Twitter-like webpage. This includes being able to post microblogs similar to tweets, "favoriting" or "liking" tweets, and following certain users to add their specific tweets to an account's feed.
+
+Core Features
+-----------------
+* Posting tweets
+* Liking tweets
+* Following users to see their future tweets
+
+Languages
+-----------------
+* SQLite
+* Python
+* Django
 
 Team Members
 ---------------
