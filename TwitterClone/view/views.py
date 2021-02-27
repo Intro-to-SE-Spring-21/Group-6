@@ -5,4 +5,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello World!")
+    if request.user.is_authenticated:
+        return render(request=request, template_name='index.html', context={'name': request.user.username})
+    else:
+        return render(request=request, template_name='index.html', context={'name': None})
