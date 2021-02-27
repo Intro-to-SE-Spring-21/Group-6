@@ -18,5 +18,6 @@ from django.urls import include, path
 
 urlpatterns = [
     path('', include('view.urls')), #Default Path is to the view app which will is the front end
+    path('accounts/', include('accounts.urls')), #Default path for accounts
     path('admin/', admin.site.urls),
 ]

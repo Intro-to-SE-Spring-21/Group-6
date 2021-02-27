@@ -1,0 +1,25 @@
+{% block content %}
+
+<h1>
+    Hello {% if name %} {{name}} {% else %} Nobody {% endif %}
+</h1>
+
+<table>
+    <tr>
+        {% if user.is_authenticated == false %}
+        <td>
+            <a href="/accounts/login">Login</a>
+        </td>
+        <td>
+            <a href="/accounts/register">Register</a>
+        </td>
+        {% else %}
+        <td>
+            <a href="/accounts/logout">logout</a>
+        </td>
+        {% endif %}
+    </tr>
+</table>
+
+
+{% endblock %}
