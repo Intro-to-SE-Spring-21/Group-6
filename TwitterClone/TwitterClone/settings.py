@@ -26,7 +26,7 @@ SECRET_KEY = '8vu_1b6!cfz@n(605rpw&s58h6-6+au3(6k5-uk&parsg%+e(h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['swe2021-twitter.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'swe2021-twitter.herokuapp.com']
 
 
 # Application definition
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'TwitterClone',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +123,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
