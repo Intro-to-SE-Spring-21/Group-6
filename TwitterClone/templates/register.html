@@ -2,10 +2,6 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-{% if form.errors %}
-<p>Something went wrong with registration.</p>
-{% endif %}
-
 <form method="POST" action="{% url 'register' %}" class="container-sm">
     {% csrf_token %}
     {{form|crispy}}
