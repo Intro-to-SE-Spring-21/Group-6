@@ -26,7 +26,7 @@ SECRET_KEY = '8vu_1b6!cfz@n(605rpw&s58h6-6+au3(6k5-uk&parsg%+e(h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['swe2021-twitter.herokuapp.com']
 
 
 # Application definition
