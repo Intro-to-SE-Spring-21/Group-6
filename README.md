@@ -51,6 +51,11 @@ Github Email: bma1701@gmail.com
 
 MSU ID: bma271
 ```
+```
+???: Derek Wilson
+Github Email: wderek0@gmail.com
+
+MSU ID: dlw606
 
 Running
 ---------------
