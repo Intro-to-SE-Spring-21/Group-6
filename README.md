@@ -45,11 +45,11 @@ Github Email: connorhicks@outlook.com
 MSU ID: ch3083 
 ```
 ```
-???: Bryan Alston
+???: Derek Wilson
 
-Github Email: bma1701@gmail.com
+Github Email: wderek0@gmail.com
 
-MSU ID: bma271
+MSU ID: dlw606
 ```
 
 Running
