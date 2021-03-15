@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'TwitterClone',
     'crispy_forms',
+    'fontawesome-free',
 ]
 
 MIDDLEWARE = [

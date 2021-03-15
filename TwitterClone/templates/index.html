@@ -9,8 +9,12 @@
     <div>
         <ul>
             {% for tweet in tweets %}
-                <li>
+                <li class="bg-secondary">
                     <h3>{{tweet.message}}</h3>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <button type="submit" value={{tweet.tweetID}} name="likeButton"><i class="fa{% if tweet.tweetID in likedTweets %}r{%endif%} fa-heart" id="heart-icon"></i></button>
+                    </form>
                 </li>
             {% endfor %}
         </ul>
@@ -23,7 +27,7 @@
         <form method="POST" class="container-sm">
             {% csrf_token %}
             {{form|crispy}}
-            <input type="submit" value="submitTweet" class="btn btn-success" />
+            <input type="submit" value="submitTweet" class="btn btn-success" name="submitTweet" />
         </form>
     </div>
 </div>
