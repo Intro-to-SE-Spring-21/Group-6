@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
-
+from .models import Account
 # Create your views here.
 
 
@@ -34,6 +34,7 @@ def register(request):
             passwordPreEncrypt = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=passwordPreEncrypt)
             if user is not None:
+                addUserToDB(username)
                 login(request, user)
                 return HttpResponseRedirect('/')
             else:
@@ -46,3 +47,9 @@ def register(request):
 def logoutUser(request):
     logout(request)
     return redirect('/accounts/login')
+
+
+def addUserToDB(username):
+    newAccount = Account(username=username)
+    newAccount.save()
+    return
