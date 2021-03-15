@@ -53,3 +53,9 @@ def addUserToDB(username):
     newAccount = Account(username=username)
     newAccount.save()
     return
+
+def currentUserID(request):
+    accountReturned = Account.objects.get(username=request.user.username)
+    if (accountReturned):
+        return accountReturned
+    return False

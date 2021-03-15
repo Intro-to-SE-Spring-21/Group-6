@@ -32,9 +32,9 @@ ALLOWED_HOSTS = ['127.0.0.1', 'swe2021-twitter.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'tweets.apps.TweetsConfig',
-    'accounts.apps.AccountsConfig',
-    'view.apps.ViewConfig',
+    'tweets',
+    'accounts',
+    'view',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

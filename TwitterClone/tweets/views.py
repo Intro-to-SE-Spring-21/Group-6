@@ -6,9 +6,12 @@ import string  # https://stackoverflow.com/questions/2257441/random-string-gener
 # Create your views here.
 
 
-def createTweet(request, account, messageText, mediaLink):
-    tweet_instance = Tweet.objects.create(userID = account, message = messageText, media = mediaLink, numLikes = 0)
-    return render(request, 'tweets/created.html')
+def createTweet(account, messageText, mediaLink):
+    tweetInstance = Tweet(userID = account, message = messageText, media = mediaLink, numLikes = 0)
+    if (tweetInstance):
+        tweetInstance.save()
+        return True
+    return False
 
 def getAllTweets(request):
     allTweets = Tweet.objects.all()
