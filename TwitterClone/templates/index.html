@@ -29,7 +29,7 @@
                 <form method="POST">
                     {% csrf_token %}
                     <button type="submit" value={{tweet.tweetID}} name="likeButton" class ="tweet-like"><i
-                            class="fa{% if tweet.tweetID in likedTweets %}r{%endif%} fa-heart"
+                            class="fa{% if tweet.tweetID not in likedTweets %}r{%endif%} fa-heart"
                             id="heart-icon"></i></button>
                 </form>
             </li>

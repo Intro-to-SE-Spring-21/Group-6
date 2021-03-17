@@ -32,3 +32,4 @@ protobuf==3.14.0
 django-crispy-forms==1.11.1
 Pillow==8.1.2
 fontawesome-free==5.15.2
+whitenoise==5.2.0

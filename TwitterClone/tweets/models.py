@@ -20,9 +20,11 @@ class Tweet(models.Model):
     def getUserID(self):
         return self.userID.userID
 
+
 class likeTweet(models.Model):
     userID = models.ForeignKey('accounts.Account', on_delete=models.CASCADE)
     tweetID = models.ForeignKey('tweets.Tweet', on_delete=models.CASCADE)
+
 
 class tweetForm(ModelForm):
     class Meta:
