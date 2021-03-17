@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
-from .models import Account
+from .models import Account, Following
 # Create your views here.
 
 
@@ -59,3 +59,14 @@ def currentUserID(request):
     if (accountReturned):
         return accountReturned
     return False
+
+def getAllFollowedUsers(userAccount):
+    return list(Following.objects.filter(follower=userAccount).values_list('following', flat=True))
+
+def followUser(followerUser, toFollowUser):
+    followerQuerySet = Following.objects.filter(follower = followerUser, following = toFollowUser)
+    if followerQuerySet.count() > 0:
+        followerQuerySet.delete()
+    else:
+        followerInstance = Following(follower=followerUser, following=toFollowUser)
+        followerInstance.save()

@@ -7,7 +7,7 @@ class Account(models.Model):
 
     # Fields
     userID = models.CharField(
-        max_length=10, primary_key=True, unique=True, default=uuid.uuid4())
+        max_length=10, primary_key=True, unique=True, default=uuid.uuid4)
     username = models.CharField(unique=True, max_length=20)
     #email = models.CharField(max_length=20)
     #password = models.CharField(max_length=20)

@@ -13,7 +13,7 @@ def createTweet(account, messageText, mediaLink):
         return True
     return False
 
-def getAllTweets(request):
+def getAllTweets():
     allTweets = Tweet.objects.all()
     return allTweets
 

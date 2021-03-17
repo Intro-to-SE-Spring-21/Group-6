@@ -9,13 +9,22 @@
     <div>
         <ul>
             {% for tweet in tweets %}
-                <li class="bg-secondary">
-                    <h3>{{tweet.message}}</h3>
-                    <form method="POST">
-                        {% csrf_token %}
-                        <button type="submit" value={{tweet.tweetID}} name="likeButton"><i class="fa{% if tweet.tweetID in likedTweets %}r{%endif%} fa-heart" id="heart-icon"></i></button>
-                    </form>
-                </li>
+            <li class="bg-secondary">
+                <h3>Username: {{tweet.getUsername}}</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    {% if tweet.getUserID != userID %}
+                    <button type="submit" value={{tweet.getUserID}} name="followButton">{% if tweet.getUserID in followed%}Unfollow{% else %}Follow{% endif %}</button>
+                    {% endif %}
+                </form>
+                <h3>{{tweet.message}}</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <button type="submit" value={{tweet.tweetID}} name="likeButton"><i
+                            class="fa{% if tweet.tweetID in likedTweets %}r{%endif%} fa-heart"
+                            id="heart-icon"></i></button>
+                </form>
+            </li>
             {% endfor %}
         </ul>
     </div>
@@ -27,7 +36,7 @@
         <form method="POST" class="container-sm">
             {% csrf_token %}
             {{form|crispy}}
-            <input type="submit" value="submitTweet" class="btn btn-success" name="submitTweet" />
+            <input type="submit" value="submitTweet" class="btn btn-success" name="submitTweet" action="/" />
         </form>
     </div>
 </div>
