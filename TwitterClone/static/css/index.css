@@ -1,0 +1,21 @@
+.tweet-list {
+    height: auto;
+    list-style-type: none;
+    width: 50vw;
+}
+
+.tweet-item {
+    background-color: ivory;
+
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    border-style: none none solid none;
+}
+
+.tweet-user-content{
+    display: flex;
+    align-items: baseline;
+    align-content: center;
+    padding-bottom: 15px;
+}
