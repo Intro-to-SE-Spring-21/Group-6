@@ -51,6 +51,11 @@ Github Email: wderek0@gmail.com
 
 MSU ID: dlw606
 ```
+```
+???: Derek Wilson
+Github Email: wderek0@gmail.com
+
+MSU ID: dlw606
 
 Running
 ---------------
