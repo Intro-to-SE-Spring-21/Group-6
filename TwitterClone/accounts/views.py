@@ -52,7 +52,7 @@ def logoutUser(request):
 def addUserToDB(username):
     newAccount = Account(username=username)
     newAccount.save()
-    return
+    return True
 
 def currentUserID(request):
     accountReturned = Account.objects.get(username=request.user.username)
