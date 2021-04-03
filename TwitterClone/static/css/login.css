@@ -1,0 +1,23 @@
+.da-form {
+    width: 75%;
+    margin: auto;
+    padding: 5%;
+}
+
+.daddy-container {
+    width: 30%;
+    background: #0F0F0F;
+    color: white;
+    border: 3px solid black;
+    border-radius: 25px;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.daddy {
+    position: absolute;
+    top: 58px;
+    bottom: 0px;
+    width: 100%;
+    background: #F2F2FF;
+}
