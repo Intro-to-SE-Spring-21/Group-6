@@ -37,3 +37,16 @@ def likeUserTweet(userID, tweetID):
     else:
         likeTweetInstance = likeTweet(userID=userID, tweetID=tweetID)
         likeTweetInstance.save()
+
+        
+# https://docs.djangoproject.com/en/3.1/topics/db/queries/
+def searchTweets(message):
+    searched = Tweet.objects.filter(message=message)
+    return searched
+
+def getAllPostedTweets(user):
+    try:
+        postedTweetsIDs = list(Tweet.objects.filter(userID=user).values_list('tweetID', flat=True))
+        return postedTweetsIDs
+    except:
+        return []
