@@ -22,10 +22,10 @@ def loginUser(request):
                 
                 
 #----------- https://stackoverflow.com/questions/15984700/django-creating-custom-url-for-user-profile
-                            username= User.objects.get(username=request.user)
+                username= User.objects.get(username=request.user)
 
-                            url = reverse('Accounts', kwargs = {'username': username.username})
-                            return HttpResponseRedirect(url)
+                url = reverse('Accounts', kwargs = {'username': username.username})
+                return HttpResponseRedirect(url)
 #//--------------------------------
             
                         
@@ -63,10 +63,10 @@ def register(request):
              
             
 #----------------------------------                   
-                            username= User.objects.get(username=request.user)
+                username= User.objects.get(username=request.user)
 
-                            url = reverse('Accounts', kwargs = {'username': username.username})
-                            return HttpResponseRedirect(url)
+                url = reverse('Accounts', kwargs = {'username': username.username})
+                return HttpResponseRedirect(url)
 #//--------------------------------        
 
                 
