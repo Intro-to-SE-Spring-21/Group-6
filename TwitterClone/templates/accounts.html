@@ -1,0 +1,44 @@
+{% extends "base-template.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+
+<div class="container-sm">
+    <h1>
+        Tweets
+    </h1>
+    <div>
+        <ul class="tweet-list">
+
+
+            {% for tweet in tweets %}
+            <li class="tweet-item">
+                <div class="tweet-user-content">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% if tweet.getUserID != userID %}
+                        <button type="submit" value={{tweet.getUserID}} name="followButton" class="tweet-follow">{% if tweet.getUserID in followed%}Unfollow{% else %}Follow{% endif %}</button>
+                        {% endif %}
+                    </form>
+                </div>
+                
+                <h3 class="tweet-message">{{tweet.message}}</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <button type="submit" value={{tweet.tweetID}} name="likeButton" class ="tweet-like"><i
+                            class="fa{% if tweet.tweetID not in likedTweets %}r{%endif%} fa-heart"
+                            id="heart-icon"></i></button>
+                </form>
+            </li>
+            {% endfor %}
+
+
+        </ul>
+    </div>
+</div>
+
+
+
+{% endblock %}
