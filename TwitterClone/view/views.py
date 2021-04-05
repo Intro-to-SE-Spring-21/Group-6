@@ -44,7 +44,7 @@ def index(request):
         }
         return render(request=request, template_name='index.html', context=context)
     else:
-        return render(request=request, template_name='unauthenticated.html', context={'name': None})
+        return HttpResponseRedirect("/accounts/register/")
 
 
 def accountPages(request):
