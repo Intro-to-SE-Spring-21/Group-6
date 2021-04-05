@@ -1,11 +1,18 @@
 {% extends "base-template.html" %}
 {% block content %}
 {% load crispy_forms_tags %}
+{% load static %}
 
-<form method="POST" action="{% url 'register' %}" class="container-sm">
-    {% csrf_token %}
-    {{form|crispy}}
-    <input type="submit" value="register" class="btn btn-success" />
-</form>
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+
+<div class="daddy">
+    <div class="daddy-container">
+        <form method="POST" action="{% url 'register' %}" class="da-form">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="submit" value="register" class="btn btn-success" />
+        </form>
+    </div>
+</div>
 
 {% endblock %}

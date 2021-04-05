@@ -46,11 +46,12 @@
         <form method="POST" class="container-sm">
             {% csrf_token %}
             {{form|crispy}}
+            <p></p>
             <input type="submit" value="submitTweet" class="btn btn-success" name="submitTweet" action="/" />
+            <p></p>
         </form>
     </div>
 </div>
-
 
 
 {% endblock %}
