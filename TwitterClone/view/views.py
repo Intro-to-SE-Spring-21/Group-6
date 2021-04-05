@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from accounts.models import Account
 from tweets.models import tweetForm, likeTweet, Tweet
 from tweets.views import createTweet, getAllTweets, getAllLikedTweets, likeUserTweet
-from accounts.views import currentUserID, getAllFollowedUsers, followUser
+from accounts.views import currentUserID, getAllFollowedUsers, followUser, userPageRequest
 
 # Create your views here.
 
@@ -45,3 +45,13 @@ def index(request):
         return render(request=request, template_name='index.html', context=context)
     else:
         return render(request=request, template_name='unauthenticated.html', context={'name': None})
+
+
+def accountPages(request):
+    if request.method == "GET":
+        username = request.GET.get("user")
+        try:
+            userAccount = Account.objects.get(username=username)
+            return userPageRequest(request, userAccount)
+        except:
+            raise Http404("User not found")
