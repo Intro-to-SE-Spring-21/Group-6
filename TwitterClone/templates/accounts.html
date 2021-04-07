@@ -6,6 +6,17 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
 
 <div class="container-sm">
+    <div class="profile">
+        <img class="profile-avatar" src="{{userAccount.profilePicture.url}}">
+        <form method="POST">
+            {% csrf_token %}
+            {% if userAccount.userID != viewingAccount.userID %}
+            <button type="submit" value={{userAccount.userID}} name="followButton" class="profile-follow">
+                {% if userAccount.userID in followed %}Unfollow{% else %}Follow{% endif %}
+            </button>
+            {% endif %}
+        </form>
+    </div>
     <h1>
         {{userAccount.username}} Tweets
     </h1>
