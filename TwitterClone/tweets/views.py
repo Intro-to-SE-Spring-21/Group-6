@@ -1,8 +1,6 @@
 from django.shortcuts import render
-
-# https://stackoverflow.com/questions/35602049/how-to-insert-data-to-django-database-from-views-py-file
 from .models import Tweet, likeTweet
-import string  # https://stackoverflow.com/questions/2257441/random-string-generation-with-upper-case-letters-and-digits
+import string
 
 # Create your views here.
 
@@ -29,6 +27,17 @@ def getAllLikedTweets(user):
     except:
         return []
 
+def getAllFollowedTweets(user, followedUsers):
+    tweetsForFeed = Tweet.objects.filter(userID__in=followedUsers).order_by("created")
+    print(tweetsForFeed)    
+    return tweetsForFeed
+
+def getAllPostedTweets(user):
+    try:
+        postedTweetsIDs = Tweet.objects.filter(userID=user)
+        return postedTweetsIDs
+    except:
+        return []
 
 def likeUserTweet(userID, tweetID):
     likeQuerySet = likeTweet.objects.filter(userID=userID, tweetID=tweetID)
@@ -38,15 +47,11 @@ def likeUserTweet(userID, tweetID):
         likeTweetInstance = likeTweet(userID=userID, tweetID=tweetID)
         likeTweetInstance.save()
 
-        
+
 # https://docs.djangoproject.com/en/3.1/topics/db/queries/
 def searchTweets(message):
     searched = Tweet.objects.filter(message=message)
     return searched
 
-def getAllPostedTweets(user):
-    try:
-        postedTweetsIDs = list(Tweet.objects.filter(userID=user).values_list('tweetID', flat=True))
-        return postedTweetsIDs
-    except:
-        return []
+
+

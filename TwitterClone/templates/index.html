@@ -16,40 +16,36 @@
             {% for tweet in tweets %}
             <li class="tweet-item">
                 <div class="tweet-user-content">
-                    <h3 class="tweet-user">Username: {{tweet.getUsername}}</h3>
+                    <a href="/page/{{tweet.getUsername}}"><h3 class="tweet-user"><img src="{{tweet.getUserProfilePic.url}}"> {{tweet.getUsername}}</h3></a>
                     <form method="POST">
                         {% csrf_token %}
                         {% if tweet.getUserID != userID %}
-                        <button type="submit" value={{tweet.getUserID}} name="followButton" class="tweet-follow">{% if tweet.getUserID in followed%}Unfollow{% else %}Follow{% endif %}</button>
+                        <button type="submit" value={{tweet.getUserID}} name="followButton" class="tweet-follow">
+                            {% if tweet.getUserID in followed %}Unfollow{% else %}Follow{% endif %}
+                        </button>
                         {% endif %}
                     </form>
                 </div>
-                
+
                 <h3 class="tweet-message">{{tweet.message}}</h3>
+                {% if tweet.media %}
+                <img class="tweet-media" src="{{tweet.media.url}}">
+                {% endif %}
+
+
                 <form method="POST">
                     {% csrf_token %}
-                    <button type="submit" value={{tweet.tweetID}} name="likeButton" class ="tweet-like"><i
-                            class="fa{% if tweet.tweetID not in likedTweets %}r{%endif%} fa-heart"
-                            id="heart-icon"></i></button>
+                    <button type="submit" value={{tweet.tweetID}} name="likeButton" class="tweet-like btn">
+                        <p>{{tweet.getNumberOfLikes}}
+                            <i class="fa{% if tweet.tweetID not in likedTweets %}r{%endif%} fa-heart" id="heart-icon"></i>
+                        </p>
+                    </button>
                 </form>
             </li>
             {% endfor %}
 
 
         </ul>
-    </div>
-
-    <h1>
-        Create Tweets
-    </h1>
-    <div>
-        <form method="POST" class="container-sm">
-            {% csrf_token %}
-            {{form|crispy}}
-            <p></p>
-            <input type="submit" value="submitTweet" class="btn btn-success" name="submitTweet" action="/" />
-            <p></p>
-        </form>
     </div>
 </div>
 

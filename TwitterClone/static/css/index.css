@@ -1,16 +1,26 @@
 .tweet-list {
     height: auto;
     list-style-type: none;
-    width: 50vw;
+    max-width: vw;
+}
+
+.tweet-list a {
+    text-decoration: none;
+    color: Black;
 }
 
 .tweet-item {
-    background-color: ivory;
+    background-color: darkgrey;
 
     display: flex;
     flex-direction: column;
-    padding-bottom: 10px;
-    border-style: none none solid none;
+    
+    margin-bottom: 25px;
+    border: 3px solid black;
+    border-radius: 25px;
+
+    padding-bottom: 15px;
+    padding-left: 15px
 }
 
 .tweet-user-content{
@@ -18,4 +28,31 @@
     align-items: baseline;
     align-content: center;
     padding-bottom: 15px;
+}
+
+.tweet-media {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.tweet-user {
+    margin-top: 10px;
+}
+
+.tweet-user img {
+    width: 40px;
+    height: 40px;
+
+    margin-right: 5px;
+    border-radius: 50%;
+
+    vertical-align: middle;
+}
+
+.tweet-follow {
+    margin-left: 25px;
+}
+
+.tweet-like {
+    margin-top: 30px;
 }

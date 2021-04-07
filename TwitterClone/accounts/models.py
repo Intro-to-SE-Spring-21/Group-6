@@ -9,11 +9,10 @@ class Account(models.Model):
     userID = models.CharField(
         max_length=10, primary_key=True, unique=True, default=uuid.uuid4)
     username = models.CharField(unique=True, max_length=20)
-    #email = models.CharField(max_length=20)
-    #password = models.CharField(max_length=20)
-    #securityQuestion = models.CharField(max_length=20)
-    #securityAnswer = models.CharField(max_length=20)
+    profilePicture = models.ImageField(upload_to='profiles', default='Default_Profile.jpeg')
 
+    def __str__(self):
+        return self.username
 
 class Following(models.Model):
 

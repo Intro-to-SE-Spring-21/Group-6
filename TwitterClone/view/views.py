@@ -2,42 +2,37 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from accounts.models import Account
 from tweets.models import tweetForm, likeTweet, Tweet
-from tweets.views import createTweet, getAllTweets, getAllLikedTweets, likeUserTweet
+from tweets.views import createTweet, getAllFollowedTweets, getAllLikedTweets, likeUserTweet
 from accounts.views import currentUserID, getAllFollowedUsers, followUser, userPageRequest
 
 # Create your views here.
 
 
 def index(request):
+    print("Testing")
     if request.user.is_authenticated:
-        form = tweetForm
 
         user = currentUserID(request)
         if request.method == "POST":
-            if "submitTweet" in request.POST:
-                form = tweetForm(request.POST)
-                if form.is_valid():
-                    createTweet(
-                        user, form.cleaned_data["message"], form.cleaned_data["media"])
-            elif "likeButton" in request.POST:
+            if "likeButton" in request.POST:
                 tweetInstance = Tweet.objects.get(
                     tweetID=request.POST["likeButton"])
                 likeUserTweet(user, tweetInstance)
+
             elif "followButton" in request.POST:
                 toFollowUser = Account.objects.get(
                     userID=request.POST["followButton"])
                 followUser(user, toFollowUser)
+
             return HttpResponseRedirect("/")
 
-        tweets = reversed(getAllTweets())
+        tweets = reversed(getAllFollowedTweets(user, getAllFollowedUsers(user) + [user]))
         likedTweets = getAllLikedTweets(user)
         followedUsers = getAllFollowedUsers(user)
-        print(followedUsers)
 
         context = {
             'name': request.user.username,
             'userID': user.userID,
-            'form': form,
             'tweets': tweets,
             'likedTweets': likedTweets,
             'followed': followedUsers,
@@ -46,12 +41,3 @@ def index(request):
     else:
         return HttpResponseRedirect("/accounts/register/")
 
-
-def accountPages(request):
-    if request.method == "GET":
-        username = request.GET.get("user")
-        try:
-            userAccount = Account.objects.get(username=username)
-            return userPageRequest(request, userAccount)
-        except:
-            raise Http404("User not found")

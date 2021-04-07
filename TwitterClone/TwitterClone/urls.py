@@ -13,14 +13,21 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from . import settings
+from django.contrib.staticfiles.urls import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.urls import include, path, re_path
 
 urlpatterns = [
     # Default Path is to the view app which will is the front end
     path('', include('view.urls')),
+    path('ajax_calls/', include('accounts.urls')), #Ajax Auto-Complete
     # Path for user pages
-    re_path(r'^accounts/user/', include('view.urls')),
+    path('page/', include('accounts.urls')),
     path('accounts/', include('accounts.urls')),  # Default path for accounts
     path('admin/', admin.site.urls),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
